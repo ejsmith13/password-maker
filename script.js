@@ -10,9 +10,6 @@ function writePassword() {
 
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
 function askQuestions() {
 
   var confirmUpper = confirm("Would you like to use upper case letters?")
@@ -22,8 +19,13 @@ function askQuestions() {
   var promptLenght = prompt("How many characters would you like your password to have?")
 
   if (confirmUpper) {
-    console.log("Uppercase")
+    console.log("Uppercase");
   }
 }
 
-askQuestions();
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword, askQuestions);
+
+
+
+
