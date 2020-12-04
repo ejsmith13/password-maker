@@ -2,6 +2,7 @@
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
+   //questions alerted to user to get parameters for password
   var upperQ = confirm("Would you like to use upper case letters?");
   var lowerQ = confirm("Would you like to use lower case letters?");
   var numbersQ = confirm("Would you like to use numbers?");
@@ -9,7 +10,7 @@ function generatePassword() {
   var rangeQ = prompt(
     "How many characters would you like your password to have?"
   );
-  //questions alerted to user to get parameters for password
+ 
 
   //arrays of characters to be used in password
   var upperA = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",];
@@ -17,22 +18,24 @@ function generatePassword() {
   var numbersA = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   var specialA = ["!", "@", "#", "$", "&", "*", "_"];
 
+    //console log test of questions
   if (upperQ) {
     console.log("Uppercase");
-  }
-  for (var j = 0; j < 5; j++) {
+
+    for (var j = 0; j < rangeQ; j++) {
     // Generate a random decimal number between 0 and 1
 
-    var num = Math.floor(Math.random() * 26) + 1;
+      var num = Math.floor(Math.random() * 26) + 1;
 
-    console.log(upperA[num]);
+      console.log(upperA[num]);
+    }
   }
 
  
 
 
 
-  for (var i = 0; i < 5; i++) {
+  for (var i = 0; i < rangeQ; i++) {
     // Generate a random decimal number between 0 and 1
 
     var num = Math.floor(Math.random() * 10) + 1;
