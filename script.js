@@ -71,53 +71,48 @@ function generatePassword() {
   // var numbersA = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   var specialA = ["!", "@", "#", "$", "&", "*", "_"];
 
-  //console log test of questions
-  if (upperQ) {
-    console.log("Uppercase");
+  for (var i = 0; i < rangeQ; i++){
+    //console log test of questions
+    if (upperQ) {
+      console.log("Uppercase");
 
-    
       // Generate a random number between 0 and 26 to pull from upper array
 
       var num = Math.floor(Math.random() * 26);
 
       console.log(upperA[num]);
-    
-  }
+      
+    }
 
-  if (lowerQ) {
+    if (lowerQ) {
+      // Generate a random number between 1 and 26 to pull from lower array
+      var num2 = Math.floor(Math.random() * 26) + 1;
 
-    // Generate a random number between 1 and 26
-    var num2 = Math.floor(Math.random() * 26) + 1;
+      // Display in console
+      console.log(lowerA[num2]);
+      
+    }
 
-     // Display in console
-    console.log(lowerA[num2]);
+    if (numbersQ) {
+      
+      // Generate a random number between 1 and 9 
+      var num3 = Math.floor(Math.random() * 9) + 1;
 
-  }
+      // Display in console
+      console.log(num3);
+      
+    }
 
-  if (numbersQ) {
-    
-    // Generate a random number between 1 and 9
-
-    var num3 = Math.floor(Math.random() * 9) + 1;
-
-    // Display in console
-     console.log(num3);
-    
-  }
-
-  if (specialQ) {
-    
+    if (specialQ) {
+      
       // Generate a random number between 1 and 9
-
       var num4 = Math.floor(Math.random() * 9) + 1;
 
       // Display in console
       console.log(specialA[num4]);
-  
+      
+    } 
   }
-
-  return specialA
-  
 }
 
 // Write password to the #password input
