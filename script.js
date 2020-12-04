@@ -137,7 +137,8 @@ function generatePassword() {
     
 
   }
-  return finalAnswer
+  
+  return finalAnswer.join("");
 }
 
 // write password to the #password input
