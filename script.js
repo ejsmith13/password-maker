@@ -68,44 +68,34 @@ function generatePassword() {
     "y",
     "z",
   ];
-  // var numbersA = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   var specialA = ["!", "@", "#", "$", "&", "*", "_"];
-  var i = 0
 
-  while  (i < rangeQ) {
-    //console log test of questions
+  var i = 0;
+
+  while (i < rangeQ) {
+    // generate a random number between 0 and 26 to pull from upper array
+    var numUpper = Math.floor(Math.random() * 26);
+    // generate a random number between 1 and 26 to pull from lower array
+    var numLower = Math.floor(Math.random() * 26) + 1;
+    // generate a random number between 1 and 9 for numbers
+    var number = Math.floor(Math.random() * 9) + 1;
+    // generate a random number between 1 and 6 for special characters
+    var numSpecial = Math.floor(Math.random() * 6) + 1;
+
     if (upperQ) {
-      console.log("Uppercase");
-
-      // generate a random number between 0 and 26 to pull from upper array
-
-      var num = Math.floor(Math.random() * 26);
-
-      console.log(upperA[num]);
+      console.log(upperA[numUpper]);
     }
 
     if (lowerQ) {
-      // generate a random number between 1 and 26 to pull from lower array
-      var num2 = Math.floor(Math.random() * 26) + 1;
-
-      
-      console.log(lowerA[num2]);
+      console.log(lowerA[numLower]);
     }
 
     if (numbersQ) {
-      // generate a random number between 1 and 9
-      var num3 = Math.floor(Math.random() * 9) + 1;
-
-      
-      console.log(num3);
+      console.log(number);
     }
 
     if (specialQ) {
-      // generate a random number between 1 and 7
-      var num4 = Math.floor(Math.random() * 7) + 1;
-
-      
-      console.log(specialA[num4]);
+      console.log(specialA[numSpecial]);
     }
     i++;
   }
@@ -119,5 +109,5 @@ function writePassword() {
   passwordText.value = password;
 }
 
-// a dd event listener to generate button
+// add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
