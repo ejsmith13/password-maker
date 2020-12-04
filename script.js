@@ -72,7 +72,13 @@ function generatePassword() {
 
   var i = 0;
 
-  if (upperQ === !true && lowerQ === !true && numbersQ === !true && specialQ === !true) {
+  //must chose a type of character for the password maker to continue
+  if (
+    upperQ === !true &&
+    lowerQ === !true &&
+    numbersQ === !true &&
+    specialQ === !true
+  ) {
     alert("Please choose a character type");
     generatePassword();
   }
@@ -86,8 +92,6 @@ function generatePassword() {
     var number = Math.floor(Math.random() * 9) + 1;
     // generate a random number between 1 and 6 for special characters
     var numSpecial = Math.floor(Math.random() * 6) + 1;
-
-      
 
     if (upperQ) {
       console.log(upperA[numUpper]);
@@ -111,6 +115,7 @@ function generatePassword() {
 
     i++;
   }
+  return upperCase + lowerCase + numberCase + specialCase
 }
 
 // write password to the #password input
