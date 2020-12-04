@@ -72,6 +72,11 @@ function generatePassword() {
 
   var i = 0;
 
+  if (upperQ === !true && lowerQ === !true && numbersQ === !true && specialQ === !true) {
+    alert("Please choose a character type");
+    generatePassword();
+  }
+
   while (i < rangeQ) {
     // generate a random number between 0 and 26 to pull from upper array
     var numUpper = Math.floor(Math.random() * 26);
@@ -82,21 +87,28 @@ function generatePassword() {
     // generate a random number between 1 and 6 for special characters
     var numSpecial = Math.floor(Math.random() * 6) + 1;
 
+      
+
     if (upperQ) {
       console.log(upperA[numUpper]);
+      var upperCase = upperA[numUpper];
     }
 
     if (lowerQ) {
       console.log(lowerA[numLower]);
+      var lowerCase = lowerA[numLower];
     }
 
     if (numbersQ) {
       console.log(number);
+      var numberCase = number;
     }
 
     if (specialQ) {
       console.log(specialA[numSpecial]);
+      var specialCase = specialA[numSpecial];
     }
+
     i++;
   }
 }
