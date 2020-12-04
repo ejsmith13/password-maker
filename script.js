@@ -72,6 +72,7 @@ function generatePassword() {
 
   var i = 0;
 
+  //Arrays of random answers
   var upperAnswer = [];
   var lowerAnswer = [];
   var numberAnswer = [];
@@ -90,7 +91,7 @@ function generatePassword() {
 
   while (i < rangeQ) {
     // generate a random number between 0 and 26 to pull from upper array
-    var numUpper = Math.floor(Math.random() * 26);
+    var numUpper = Math.floor(Math.random() * 26)+1;
     // generate a random number between 1 and 26 to pull from lower array
     var numLower = Math.floor(Math.random() * 26) + 1;
     // generate a random number between 1 and 9 for numbers
@@ -101,35 +102,42 @@ function generatePassword() {
     if (upperQ) {
       console.log(upperA[numUpper]);
       var upperCase = upperA[numUpper];
-
       upperAnswer[i] = upperCase;
     }
 
     if (lowerQ) {
       console.log(lowerA[numLower]);
       var lowerCase = lowerA[numLower];
-
-      lowerAnswer[i] = lowercase;
+      lowerAnswer[i] = lowerCase;
     }
 
     if (numbersQ) {
       console.log(number);
       var numberCase = number;
-
       numberAnswer[i] = numberCase;
     }
 
     if (specialQ) {
       console.log(specialA[numSpecial]);
       var specialCase = specialA[numSpecial];
-
       specialAnswer[i] = specialCase;
     }
 
     i++;
-
-    console.log(upperAnswer);
   }
+
+  var allAnswers = [upperAnswer, lowerAnswer, numberAnswer, specialAnswer]
+  var finalAnswer = []
+  
+  for (i = 0; i < rangeQ; i++){
+    var randNumb1 = Math.floor(Math.random() * 4);
+    var randNumb2 = Math.floor(Math.random() * rangeQ) + 1;
+    finalAnswer[i] = allAnswers[randNumb1][randNumb2];
+
+    
+
+  }
+  return finalAnswer
 }
 
 // write password to the #password input
