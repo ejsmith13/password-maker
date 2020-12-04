@@ -2,15 +2,78 @@
 var generateBtn = document.querySelector("#generate");
 
 function askQuestions() {
-  var upper = confirm("Would you like to use upper case letters?");
-  var lower = confirm("Would you like to use lower case letters?");
-  var numbers = confirm("Would you like to use numbers?");
-  var special = confirm("Would you like to use special characters?");
-  var range = prompt(
+  var upperQ = confirm("Would you like to use upper case letters?");
+  var lowerQ = confirm("Would you like to use lower case letters?");
+  var numbersQ = confirm("Would you like to use numbers?");
+  var specialQ = confirm("Would you like to use special characters?");
+  var rangeQ = prompt(
     "How many characters would you like your password to have?"
   );
+  //questions alerted to user to get parameters for password
 
-  if (upper) {
+  //arrays of characters to be used in password
+  var upperA =
+    array[
+      ("A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "U",
+      "V",
+      "W",
+      "X",
+      "Y",
+      "Z")
+    ];
+  var lowerA =
+    array[
+      ("a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h",
+      "i",
+      "j",
+      "k",
+      "l",
+      "m",
+      "n",
+      "o",
+      "p",
+      "q",
+      "r",
+      "s",
+      "t",
+      "u",
+      "v",
+      "w",
+      "x",
+      "y",
+      "z")
+    ];
+  var numbersA = array[(1, 2, 3, 4, 5, 6, 7, 8, 9)];
+  var specialA = array[("!", "@", "#", "$", "&", "*", "_")];
+
+  if (upperQ) {
     console.log("Uppercase");
   }
 
@@ -25,13 +88,9 @@ function generatePassword() {
 
     // Display in console
     console.log(num);
-
-    
+    return num;
   }
-  return (num); 
 }
-
-
 
 // Write password to the #password input
 function writePassword() {
