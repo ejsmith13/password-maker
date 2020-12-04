@@ -1,7 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-function askQuestions() {
+function generatePassword() {
   var upperQ = confirm("Would you like to use upper case letters?");
   var lowerQ = confirm("Would you like to use lower case letters?");
   var numbersQ = confirm("Would you like to use numbers?");
@@ -12,62 +12,8 @@ function askQuestions() {
   //questions alerted to user to get parameters for password
 
   //arrays of characters to be used in password
-  var upperA = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z",
-  ];
-  var lowerA = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z",
-  ];
+  var upperA = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",];
+  var lowerA = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",];
   var numbersA = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   var specialA = ["!", "@", "#", "$", "&", "*", "_"];
 
@@ -79,14 +25,13 @@ function askQuestions() {
 
     var num = Math.floor(Math.random() * 26) + 1;
 
-    
     console.log(upperA[num]);
   }
 
-  writePassword();
-}
+ 
 
-function generatePassword() {
+
+
   for (var i = 0; i < 5; i++) {
     // Generate a random decimal number between 0 and 1
 
@@ -109,4 +54,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", askQuestions);
+generateBtn.addEventListener("click", writePassword);
