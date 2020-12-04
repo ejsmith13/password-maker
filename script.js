@@ -12,69 +12,75 @@ function askQuestions() {
   //questions alerted to user to get parameters for password
 
   //arrays of characters to be used in password
-  var upperA =
-    array[
-      ("A",
-      "B",
-      "C",
-      "D",
-      "E",
-      "F",
-      "G",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "N",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S",
-      "T",
-      "U",
-      "V",
-      "W",
-      "X",
-      "Y",
-      "Z")
-    ];
-  var lowerA =
-    array[
-      ("a",
-      "b",
-      "c",
-      "d",
-      "e",
-      "f",
-      "g",
-      "h",
-      "i",
-      "j",
-      "k",
-      "l",
-      "m",
-      "n",
-      "o",
-      "p",
-      "q",
-      "r",
-      "s",
-      "t",
-      "u",
-      "v",
-      "w",
-      "x",
-      "y",
-      "z")
-    ];
-  var numbersA = array[(1, 2, 3, 4, 5, 6, 7, 8, 9)];
-  var specialA = array[("!", "@", "#", "$", "&", "*", "_")];
+  var upperA = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+  ];
+  var lowerA = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+  ];
+  var numbersA = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  var specialA = ["!", "@", "#", "$", "&", "*", "_"];
 
   if (upperQ) {
     console.log("Uppercase");
+  }
+  for (var j = 0; j < 5; j++) {
+    // Generate a random decimal number between 0 and 1
+
+    var num = Math.floor(Math.random() * 26) + 1;
+
+    
+    console.log(upperA[num]);
   }
 
   writePassword();
@@ -88,8 +94,10 @@ function generatePassword() {
 
     // Display in console
     console.log(num);
-    return num;
+
+    // console.log(upperA[num]);
   }
+  return num;
 }
 
 // Write password to the #password input
