@@ -75,26 +75,48 @@ function generatePassword() {
   if (upperQ) {
     console.log("Uppercase");
 
-    for (var j = 0; j < rangeQ; j++) {
+    
       // Generate a random number between 0 and 26 to pull from upper array
 
       var num = Math.floor(Math.random() * 26);
 
       console.log(upperA[num]);
-    }
+    
   }
 
-  for (var i = 0; i < rangeQ; i++) {
+  if (lowerQ) {
+
+    // Generate a random number between 1 and 26
+    var num2 = Math.floor(Math.random() * 26) + 1;
+
+     // Display in console
+    console.log(lowerA[num2]);
+
+  }
+
+  if (numbersQ) {
+    
     // Generate a random number between 1 and 9
 
-    var num2 = Math.floor(Math.random() * 9) + 1;
+    var num3 = Math.floor(Math.random() * 9) + 1;
 
     // Display in console
-    console.log(num2);
-
-    // console.log(upperA[num]);
+     console.log(num3);
+    
   }
-  return upperA[num];
+
+  if (specialQ) {
+    
+      // Generate a random number between 1 and 9
+
+      var num4 = Math.floor(Math.random() * 9) + 1;
+
+      // Display in console
+      console.log(specialA[num4]);
+  
+  }
+
+  return specialA
   
 }
 
