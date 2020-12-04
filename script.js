@@ -72,6 +72,11 @@ function generatePassword() {
 
   var i = 0;
 
+  var upperAnswer = [];
+  var lowerAnswer = [];
+  var numberAnswer = [];
+  var specialAnswer = [];
+
   //must chose a type of character for the password maker to continue
   if (
     upperQ === !true &&
@@ -96,26 +101,35 @@ function generatePassword() {
     if (upperQ) {
       console.log(upperA[numUpper]);
       var upperCase = upperA[numUpper];
+
+      upperAnswer[i] = upperCase;
     }
 
     if (lowerQ) {
       console.log(lowerA[numLower]);
       var lowerCase = lowerA[numLower];
+
+      lowerAnswer[i] = lowercase;
     }
 
     if (numbersQ) {
       console.log(number);
       var numberCase = number;
+
+      numberAnswer[i] = numberCase;
     }
 
     if (specialQ) {
       console.log(specialA[numSpecial]);
       var specialCase = specialA[numSpecial];
+
+      specialAnswer[i] = specialCase;
     }
 
     i++;
+
+    console.log(upperAnswer);
   }
-  return upperCase + lowerCase + numberCase + specialCase
 }
 
 // write password to the #password input
