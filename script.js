@@ -8,7 +8,7 @@ function generatePassword() {
   var numbersQ = confirm("Would you like to use numbers?");
   var specialQ = confirm("Would you like to use special characters?");
   var rangeQ = prompt(
-    "How many characters would you like your password to have?"
+    "How many characters would you like your password to have? Please choose between 8 & 128."
   );
 
   //arrays of characters to be used in password
@@ -89,6 +89,11 @@ function generatePassword() {
     generatePassword();
   }
 
+  if (rangeQ < 8 || rangeQ > 128) {
+    alert("Please choose a length between 8 and 128 characters");
+    generatePassword();
+  }
+
   while (i < rangeQ) {
     // generate a random number between 0 and 26 to pull from upper array
     var numUpper = Math.floor(Math.random() * 26)+1;
@@ -126,18 +131,36 @@ function generatePassword() {
     i++;
   }
 
-  var allAnswers = [upperAnswer, lowerAnswer, numberAnswer, specialAnswer]
+  var allAnswers = []
   var finalAnswer = []
   
+  //adding answer arrays to allAnswers array
+  if (upperAnswer.length > 1) {
+    // allAnswers[i] = upperAnswer
+    allAnswers.push(upperAnswer);
+  }
+  if (lowerAnswer.length > 1) {
+    // allAnswers[i] = lowerAnswer
+    allAnswers.push(lowerAnswer);
+  }
+  if (numberAnswer.length > 1) {
+    // allAnswers[i] = numberAnswer
+    allAnswers.push(numberAnswer);
+  }
+  if (specialAnswer.length > 1) {
+    // allAnswers[i] = specialAnswer;
+    allAnswers.push(specialAnswer);
+  }
+
+  console.log(allAnswers)
+
   for (i = 0; i < rangeQ; i++){
-    var randNumb1 = Math.floor(Math.random() * 4);
-    var randNumb2 = Math.floor(Math.random() * rangeQ) + 1;
+    var randNumb1 = Math.floor(Math.random() * allAnswers.length);
+    var randNumb2 = Math.floor(Math.random() * rangeQ);
     finalAnswer[i] = allAnswers[randNumb1][randNumb2];
 
-    
-
   }
-  
+  console.log(finalAnswer)
   return finalAnswer.join("");
 }
 
