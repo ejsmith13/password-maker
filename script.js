@@ -12,19 +12,21 @@ function generatePassword() {
   );
 
   //arrays of characters to be used in password
-  var upperA = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-  var lowerA = "abcdefghijklmnopqrstuvwxyz".split("");
-  var specialA = "!@#$%^&*()_+[/]~".split("");
+  var upperArray = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  var lowerArray = "abcdefghijklmnopqrstuvwxyz".split("");
+  var specialArray = "!@#$%^&*()_+[/]~".split("");
 
   var i = 0;
 
-  console.log(alphabet)
-
-  //Arrays for random answers in each character group
+  //arrays for random answers in each character group
   var upperAnswer = [];
   var lowerAnswer = [];
   var numberAnswer = [];
   var specialAnswer = [];
+
+  //arrays for picking and storing the  final answers
+  var allAnswers = [];
+  var finalAnswer = [];
 
   //must chose a type of character for the password maker to continue
   if (
@@ -35,29 +37,36 @@ function generatePassword() {
   ) {
     alert("Please choose a character type");
     generatePassword();
+    
   }
 
+
+  //if user enters anything outside of the 8-128 character range,
+  //the site will return message and stop sequence.
   if (rangeQ < 8 || rangeQ > 128) {
-    alert("Please choose a length between 8 and 128 characters");
-    generatePassword();
+    return "Please choose a length between 8 and 128 characters"
+    
   }
 
+  //while statement runs as many times as the user enters in the prompt for number of characters in password.
+  //this creates contents for each "character"Answer array and stores them in their respective array. 
   while (i < rangeQ) {
-    // generate a random number for each array to use when choosing a character
-    var numUpper = Math.floor(Math.random() * upperA.length);
-    var numLower = Math.floor(Math.random() * lowerA.length);
+    // generate a random number for each array to use when choosing a character in each array
+    var numUpper = Math.floor(Math.random() * upperArray.length);
+    var numLower = Math.floor(Math.random() * lowerArray.length);
     var number = Math.floor(Math.random() * 9);
-    var numSpecial = Math.floor(Math.random() * specialA.length);
+    var numSpecial = Math.floor(Math.random() * specialArray.length);
 
+    //uses the random number from above as a index number to pick a character out of corresponding array
     if (upperQ) {
-      console.log(upperA[numUpper]);
-      var upperCase = upperA[numUpper];
+      console.log(upperArray[numUpper]);
+      var upperCase = upperArray[numUpper];
       upperAnswer[i] = upperCase;
     }
 
     if (lowerQ) {
-      console.log(lowerA[numLower]);
-      var lowerCase = lowerA[numLower];
+      console.log(lowerArray[numLower]);
+      var lowerCase = lowerArray[numLower];
       lowerAnswer[i] = lowerCase;
     }
 
@@ -68,18 +77,16 @@ function generatePassword() {
     }
 
     if (specialQ) {
-      console.log(specialA[numSpecial]);
-      var specialCase = specialA[numSpecial];
+      console.log(specialArray[numSpecial]);
+      var specialCase = specialArray[numSpecial];
       specialAnswer[i] = specialCase;
     }
 
+    //i++ increases i by one so it will loop until it reaches the user's chosen number 
     i++;
   }
 
-  var allAnswers = [];
-  var finalAnswer = [];
-
-  //adding answer arrays to allAnswers array as long as they have content
+  //adding "character"Answer arrays WITH CONTENT to allAnswers array
   if (upperAnswer.length > 1) {
     allAnswers.push(upperAnswer);
   }
@@ -93,25 +100,47 @@ function generatePassword() {
     allAnswers.push(specialAnswer);
   }
 
+
+  //console log the allAnswers array to make sure everything is working correctly
   console.log(allAnswers);
+
+  //call final function to create randomly generated finalAnswer array
   final();
 
   function final() {
+
+    //for loop runs as many times as user's answer to prompt to create password with correct length
     for (var j = 0; j < rangeQ; j++) {
+
+      //these two variables pick random number that correspond to answers in arrays
+      //randNumb1 picks a number that will choose a "character"Answer array from allAnswers
+      //randNumb2 picks a number that will choose a character from "character"Answer array above 
       var randNumb1 = Math.floor(Math.random() * allAnswers.length);
       var randNumb2 = Math.floor(Math.random() * rangeQ);
+      
+      //makes sure neither var above comes back as -1 which would return "undefined" in answer
       if (randNumb1 < 0 || randNumb2 < 0) {
         final();
       }
 
+      //picks the final character and adds it to finalAnswer array
+      //randNumb1 corresponds to a "character"Answer array, 
+      //then randNumb2 picks a character in that "character"Answer array
+      //this answer is then added to the final answer array in the index position that corresponds to 
+      //the loop number that it was picked on
       finalAnswer[j] = allAnswers[randNumb1][randNumb2];
     }
   }
+
+  //console.log final answer to make sure everything is running correctly
   console.log(finalAnswer);
-  return finalAnswer.join("");
+
+  //return finalAnswer array as the answer the user sees
+  //.join(" ") makes the answer return to the user without "," sepperating each answer, but a space inbetween
+  return finalAnswer.join(" ");
 }
 
-// write password to the #password input
+//write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -119,5 +148,5 @@ function writePassword() {
   passwordText.value = password;
 }
 
-// add event listener to generate button
+//add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
