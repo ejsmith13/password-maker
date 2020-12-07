@@ -17,7 +17,7 @@ Each of the answers arrays are then added to an "allAnswers array". Once there i
  
  As a recap, we have now taken our answer arrays and added them to a parent "allAnswers" array. We then choose two random numbers to retrieve characters from the allanswers/"character"answers arrays. These characters are assigned to the "finalAnswers" array. 
 
-Our finalAnswers array now contains the random password, but it is sepperated by ","s. We join the array with a " " in between characters to make it more readable. The password is then returned to the user in the text area. The final outcome should look like the screen below. Each character in the password has actually been randomly chosen 3 seperate times, and the chances of guessing an 8 digit password on the first try are over 1 in 
+Our finalAnswers array now contains the random password, but it is sepperated by ","s. We join the array with a "" in between characters to make it one string. The password is then returned to the user in the text area. The final outcome should look like the screen below. Each character in the password has actually been randomly chosen 3 seperate times, and the chances of guessing an 8 digit password on the first try are over 1 in 
 58,000,000,000,000,000,000,000.
 
 GENERAL COMMENTS ON THE PROJECT

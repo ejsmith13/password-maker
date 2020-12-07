@@ -137,7 +137,7 @@ function generatePassword() {
 
   //return finalAnswer array as the answer the user sees
   //.join(" ") makes the answer return to the user without "," sepperating each answer, but a space inbetween
-  return finalAnswer.join(" ");
+  return finalAnswer.join("");
 }
 
 //write password to the #password input
