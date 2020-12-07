@@ -37,7 +37,7 @@ https://github.com/ejsmith13/password-maker
 
 
 Here is a screenshot of the deployed web-app after a password has been generated.
-![alt text](assets/images/password_screenshot.png)
+![alt text](assets/images/new_password_screenshot.png)
 
 
 
