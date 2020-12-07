@@ -136,7 +136,7 @@ function generatePassword() {
   console.log(finalAnswer);
 
   //return finalAnswer array as the answer the user sees
-  //.join(" ") makes the answer return to the user without "," sepperating each answer, but a space inbetween
+  //.join("") makes the answer return to the user without a comma sepperating each answer
   return finalAnswer.join("");
 }
 
