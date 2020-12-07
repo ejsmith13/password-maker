@@ -12,67 +12,15 @@ function generatePassword() {
   );
 
   //arrays of characters to be used in password
-  var upperA = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z",
-  ];
-  var lowerA = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z",
-  ];
-  var specialA = ["!", "@", "#", "$", "&", "*", "_", "%", "/", "+"];
+  var upperA = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  var lowerA = "abcdefghijklmnopqrstuvwxyz".split("");
+  var specialA = "!@#$%^&*()_+[/]~".split("");
 
   var i = 0;
 
-  //Arrays of random answers
+  console.log(alphabet)
+
+  //Arrays for random answers in each character group
   var upperAnswer = [];
   var lowerAnswer = [];
   var numberAnswer = [];
@@ -131,21 +79,17 @@ function generatePassword() {
   var allAnswers = [];
   var finalAnswer = [];
 
-  //adding answer arrays to allAnswers array
+  //adding answer arrays to allAnswers array as long as they have content
   if (upperAnswer.length > 1) {
-    // allAnswers[i] = upperAnswer
     allAnswers.push(upperAnswer);
   }
   if (lowerAnswer.length > 1) {
-    // allAnswers[i] = lowerAnswer
     allAnswers.push(lowerAnswer);
   }
   if (numberAnswer.length > 1) {
-    // allAnswers[i] = numberAnswer
     allAnswers.push(numberAnswer);
   }
   if (specialAnswer.length > 1) {
-    // allAnswers[i] = specialAnswer;
     allAnswers.push(specialAnswer);
   }
 
