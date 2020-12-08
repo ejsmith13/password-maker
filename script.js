@@ -43,7 +43,7 @@ function generatePassword() {
 
   //if user enters anything outside of the 8-128 character range,
   //the site will return message and stop sequence.
-  if (rangeQ < 8 || rangeQ > 128) {
+  if (rangeQ < 8 || rangeQ > 128 || isNaN(rangeQ) === true) {
     return "Please choose a length between 8 and 128 characters"
     
   }
